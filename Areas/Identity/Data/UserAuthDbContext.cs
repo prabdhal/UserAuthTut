@@ -9,10 +9,10 @@ using UserAuthTut.Areas.Identity.Data;
 
 namespace UserAuthTut.Data
 {
+    // Manages all the code related to the Identity framework
     public class UserAuthDbContext : IdentityDbContext<UserApplication>
     {
-        public UserAuthDbContext(DbContextOptions<UserAuthDbContext> options)
-            : base(options)
+        public UserAuthDbContext(DbContextOptions<UserAuthDbContext> options) : base(options)
         {
         }
 

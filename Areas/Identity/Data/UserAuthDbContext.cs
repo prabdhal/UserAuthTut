@@ -5,10 +5,11 @@ using System.Threading.Tasks;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore;
+using UserAuthTut.Areas.Identity.Data;
 
 namespace UserAuthTut.Data
 {
-    public class UserAuthDbContext : IdentityDbContext<IdentityUser>
+    public class UserAuthDbContext : IdentityDbContext<UserApplication>
     {
         public UserAuthDbContext(DbContextOptions<UserAuthDbContext> options)
             : base(options)

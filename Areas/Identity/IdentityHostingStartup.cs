@@ -5,6 +5,7 @@ using Microsoft.AspNetCore.Identity.UI;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
+using UserAuthTut.Areas.Identity.Data;
 using UserAuthTut.Data;
 
 [assembly: HostingStartup(typeof(UserAuthTut.Areas.Identity.IdentityHostingStartup))]
@@ -19,7 +20,7 @@ namespace UserAuthTut.Areas.Identity
                     options.UseSqlServer(
                         context.Configuration.GetConnectionString("UserAuthDbContextConnection")));
 
-                services.AddDefaultIdentity<IdentityUser>(options => options.SignIn.RequireConfirmedAccount = true)
+                services.AddDefaultIdentity<UserApplication>(options => options.SignIn.RequireConfirmedAccount = true)
                     .AddEntityFrameworkStores<UserAuthDbContext>();
             });
         }

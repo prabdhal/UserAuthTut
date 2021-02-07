@@ -20,7 +20,14 @@ namespace UserAuthTut.Areas.Identity
                     options.UseSqlServer(
                         context.Configuration.GetConnectionString("UserAuthDbContextConnection")));
 
-                services.AddDefaultIdentity<UserApplication>(options => options.SignIn.RequireConfirmedAccount = true)
+                // To remove email confirmation we set RequiredConfirmedAccount = false
+                services.AddDefaultIdentity<UserApplication>(options =>
+                {
+                options.SignIn.RequireConfirmedAccount = false;
+                // To disable the following validation
+                //options.Password.RequireLowercase = false; 
+                //options.Password.RequireLowercase = false;
+                })
                     .AddEntityFrameworkStores<UserAuthDbContext>();
             });
         }
